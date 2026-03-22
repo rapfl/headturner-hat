@@ -7,6 +7,9 @@ build-win/
 out/
 dist/
 
+!JUCE/extras/Build/
+!JUCE/extras/Build/**
+
 *.user
 *.suo
 *.vcxproj.user
