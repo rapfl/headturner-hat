@@ -11,16 +11,16 @@ $PluginCandidates = @(
 $PluginBundle = $PluginCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
 $IssSource = Join-Path $RootDir "packaging\windows\HeadturnerHat.iss"
 $WorkDir = Join-Path $OutDir "installer-work"
-$NsisCommand = Get-Command makensis -ErrorAction SilentlyContinue
-$NsisPath = if ($NsisCommand) {
-    $NsisCommand.Source
+$InnoCommand = Get-Command iscc -ErrorAction SilentlyContinue
+$InnoPath = if ($InnoCommand) {
+    $InnoCommand.Source
 } else {
-    $NsisFallback = Join-Path ${env:ProgramFiles(x86)} "NSIS\makensis.exe"
+    $InnoFallback = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\ISCC.exe"
 
-    if (Test-Path $NsisFallback) {
-        $NsisFallback
+    if (Test-Path $InnoFallback) {
+        $InnoFallback
     } else {
-        throw "Could not find makensis.exe"
+        throw "Could not find ISCC.exe"
     }
 }
 
@@ -34,7 +34,7 @@ Copy-Item -Recurse -Force $PluginBundle $WorkDir
 Copy-Item -Force $IssSource $WorkDir
 
 Push-Location $WorkDir
-& $NsisPath HeadturnerHat.iss
+& $InnoPath HeadturnerHat.iss
 Pop-Location
 
 $Installer = Join-Path $WorkDir "HeadturnerHat-Windows-Installer.exe"

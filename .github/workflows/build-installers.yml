@@ -36,8 +36,8 @@ jobs:
 
       - uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Install NSIS
-        run: choco install nsis --no-progress -y
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
 
       - name: Configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DJUCE_COPY_PLUGIN_AFTER_BUILD=OFF
