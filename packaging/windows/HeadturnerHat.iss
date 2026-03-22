@@ -1,5 +1,5 @@
 #define MyAppName "Headturner Hat"
-#define MyAppVersion "0.1.1"
+#define MyAppVersion "0.1.2"
 #define MyAppPublisher "Codex Audio Lab"
 #define MyAppExeName "Headturner Hat.vst3"
 

@@ -11,6 +11,18 @@ $PluginCandidates = @(
 $PluginBundle = $PluginCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
 $IssSource = Join-Path $RootDir "packaging\windows\HeadturnerHat.iss"
 $WorkDir = Join-Path $OutDir "installer-work"
+$NsisCommand = Get-Command makensis -ErrorAction SilentlyContinue
+$NsisPath = if ($NsisCommand) {
+    $NsisCommand.Source
+} else {
+    $NsisFallback = Join-Path ${env:ProgramFiles(x86)} "NSIS\makensis.exe"
+
+    if (Test-Path $NsisFallback) {
+        $NsisFallback
+    } else {
+        throw "Could not find makensis.exe"
+    }
+}
 
 if (-not $PluginBundle) {
     throw "Could not find Headturner Hat.vst3 in $BuildDir"
@@ -22,7 +34,7 @@ Copy-Item -Recurse -Force $PluginBundle $WorkDir
 Copy-Item -Force $IssSource $WorkDir
 
 Push-Location $WorkDir
-& makensis HeadturnerHat.iss
+& $NsisPath HeadturnerHat.iss
 Pop-Location
 
 $Installer = Join-Path $WorkDir "HeadturnerHat-Windows-Installer.exe"
