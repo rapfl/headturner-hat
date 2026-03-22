@@ -1,0 +1,21 @@
+Headturner Hat 0.1.0
+
+Included in this release bundle:
+
+- macOS installer package for AU + VST3 + standalone app
+- Windows installer script assets
+
+macOS install locations:
+
+- /Library/Audio/Plug-Ins/VST3/Headturner Hat.vst3
+- /Library/Audio/Plug-Ins/Components/Headturner Hat.component
+- /Applications/Headturner Hat.app
+
+Preset storage:
+
+- ~/Documents/Headturner Hat Presets
+
+Note:
+
+This release bundle was created on macOS. The Windows installer source is included,
+but the actual Windows plugin binary and compiled .exe installer must be built on Windows.

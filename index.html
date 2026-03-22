@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headturner Hat</title>
+    <meta
+      name="description"
+      content="A raw hi-hat synth sketch with clipped modes, bright metallic edges, and a flyer-first control surface."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="poster-head" aria-label="Page introduction">
+        <p class="kicker">Rahu signal test 01</p>
+        <div class="topline" aria-hidden="true">
+          <span>Hi-hat voice</span>
+          <span>Web sketch</span>
+          <span>Live trigger</span>
+        </div>
+      </section>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Analog-style techno hat synth</p>
+          <h1 id="page-title">Headturner Hat</h1>
+          <p class="lede">
+            Bright metal. Short fuse. Built for clipped runs, offbeat lifts,
+            and rude little flashes in the mix.
+          </p>
+        </div>
+
+        <div class="hero-markers" aria-hidden="true">
+          <div class="signal-orb signal-orb-yellow">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="signal-tower">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="machine" aria-labelledby="machine-title">
+        <div class="machine-heading">
+          <div>
+            <p class="label">Main voice</p>
+            <h2 id="machine-title">Strike panel</h2>
+          </div>
+          <p class="machine-note">Closed for the grid. Open for the slip.</p>
+        </div>
+
+        <div class="machine-top">
+          <div>
+            <p class="label">Mode</p>
+            <div class="toggle-group" role="group" aria-label="Hi-hat mode">
+              <button class="mode-toggle is-active" data-mode="closed" type="button">
+                Closed
+              </button>
+              <button class="mode-toggle" data-mode="open" type="button">
+                Open
+              </button>
+            </div>
+          </div>
+
+          <div class="transport">
+            <button id="trigger" class="trigger" type="button">Strike</button>
+            <button id="demo" class="demo" type="button">Run demo</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <label class="control">
+            <span>Decay</span>
+            <input id="decay" type="range" min="0" max="100" value="34" />
+            <output id="decay-value">180 ms</output>
+          </label>
+
+          <label class="control">
+            <span>Tone</span>
+            <input id="tone" type="range" min="0" max="100" value="68" />
+            <output id="tone-value">Bright</output>
+          </label>
+
+          <label class="control">
+            <span>Air</span>
+            <input id="air" type="range" min="0" max="100" value="62" />
+            <output id="air-value">Sharp</output>
+          </label>
+
+          <label class="control">
+            <span>Drive</span>
+            <input id="drive" type="range" min="0" max="100" value="41" />
+            <output id="drive-value">Crunch</output>
+          </label>
+        </div>
+
+        <div class="scope-panel">
+          <div class="status-grid">
+            <div>
+              <p class="label">Readout</p>
+              <p id="status-text" class="status-copy">
+                Closed mode keeps the envelope clipped and punchy for rolling
+                grooves.
+              </p>
+            </div>
+            <div class="meter-wrap">
+              <p class="label">Energy</p>
+              <canvas id="scope" width="240" height="100" aria-hidden="true"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="signal-orb signal-orb-blue machine-orb" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="notes" aria-label="Supporting notes">
+        <article>
+          <p class="label">Design read</p>
+          <p>
+            Tiny transient. Bright top. Slightly unstable body. That is the
+            whole move.
+          </p>
+        </article>
+        <article>
+          <p class="label">Signal chain</p>
+          <p>
+            Six pulse voices, noise, fast contour, hard cleanup, and drive for
+            heat.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
